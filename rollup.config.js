@@ -18,7 +18,7 @@ const copyConfig = {
 const config = {
   input: "dist/src/lit-element.demo.js",
   output: {
-    file: "lit-element-demo.bundled.js",
+    file: "dist/lit-element-demo.bundle.js",
     format: "esm",
   },
   plugins: [minifyHTML(), copy(copyConfig), resolve()],
