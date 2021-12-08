@@ -48,7 +48,6 @@ let LitElementDemo = class LitElementDemo extends LitElement {
     }
     _onClick() {
         this.count++;
-        console.log("Event fired");
         this.dispatchEvent(new CustomEvent("count-changed", { detail: this.count }));
     }
     /**
