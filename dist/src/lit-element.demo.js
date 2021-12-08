@@ -20,18 +20,36 @@ let LitElementDemo = class LitElementDemo extends LitElement {
          */
         this.count = 0;
     }
+    // static get styles(): CSSResult {
+    //   return lit-this.elementProperties.demo.scss;
+    // }
+    static get styles() {
+        return css `
+      :host {
+        --demo-background-color: green;
+        display: block;
+        border: solid 1px gray;
+        padding: 16px;
+        max-width: 800px;
+        background-color: var(--themeColor);
+      }
+    `;
+    }
     render() {
         return html `
-      <h1>${this.sayHello(this.name)}!</h1>
-      <button @click=${this._onClick} part="button">
-        Click Count: ${this.count}
-      </button>
-      <slot></slot>
+      <div class="demo">
+        <h1>${this.sayHello(this.name)}!</h1>
+        <button @click=${this._onClick} part="button">
+          Click Count: ${this.count}
+        </button>
+        <slot></slot>
+      </div>
     `;
     }
     _onClick() {
         this.count++;
-        this.dispatchEvent(new CustomEvent("count-changed"));
+        console.log("Event fired");
+        this.dispatchEvent(new CustomEvent("count-changed", { detail: this.count }));
     }
     /**
      * Formats a greeting
@@ -41,14 +59,6 @@ let LitElementDemo = class LitElementDemo extends LitElement {
         return `Hello, ${name}`;
     }
 };
-LitElementDemo.styles = css `
-    :host {
-      display: block;
-      border: solid 1px gray;
-      padding: 16px;
-      max-width: 800px;
-    }
-  `;
 __decorate([
     property()
 ], LitElementDemo.prototype, "name", void 0);

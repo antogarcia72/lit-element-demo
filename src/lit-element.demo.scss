@@ -1,0 +1,7 @@
+:host {
+  --demo-background-color: transparent;
+}
+
+.demo {
+  background-color: var(--demo-background-color, #9aa7b3);
+}

@@ -7,7 +7,7 @@ import { LitElement } from "lit";
  * @csspart button - The button
  */
 export declare class LitElementDemo extends LitElement {
-    static styles: import("lit").CSSResult;
+    static get styles(): import("lit").CSSResult;
     /**
      * The name to say "Hello" to.
      */

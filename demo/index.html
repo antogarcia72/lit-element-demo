@@ -9,24 +9,23 @@
     </style>
   </head>
   <body>
-    <div id="demo"></div>
-
-    <!-- <script type="module">
-    import { html, render } from 'lit';
-    import '../dist/src/lit-demo.js';
-    import '../dist/src/lit-demo.js';
-
-    const title = 'Hello owc World!';
-    render(
-      html`
-        <lit-element-demo .title=${title}>
-          some light-dom
-        </lit-element-demo>
-      `,
-      document.querySelector('#demo')
-    );
-  </script> -->
     <script src="../dist/lit-element-demo.bundle.wp.js"></script>
-    <lit-element-demo name="tucutusss"></lit-element-demo>
+    <style>
+      html {
+        --themeColor: yellow;
+      }
+    </style>
+    <lit-element-demo id="test_component" name="mi name"></lit-element-demo>
+
+    <script type="text/javascript">
+      // Referencia a nuestro componente
+      const test_component = document.querySelector("#test_component");
+
+      // Controlando el evento
+      test_component.addEventListener("count-changed", (evt) => {
+        console.log("El contador es de: " + evt.detail);
+        alert("El contador es de: " + evt.detail);
+      });
+    </script>
   </body>
 </html>
